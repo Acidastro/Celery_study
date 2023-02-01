@@ -122,6 +122,7 @@ EMAIL_PORT = 587
 # Внутри гугл почты нужно в настройках перейти во вкладку "Пересылка POP/IMAP" и включить IMAP
 
 # REDIS related settings
+
 # REDIS_HOST = '0.0.0.0'
 REDIS_HOST = 'localhost'
 REDIS_PORT = '6379'
