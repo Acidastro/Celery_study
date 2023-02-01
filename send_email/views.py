@@ -3,7 +3,7 @@ from django.views.generic import CreateView
 
 from .models import Contact
 from .forms import ContactForm
-# from .service import send
+# from .service import send_mail
 from .tasks import send_email
 
 
@@ -17,5 +17,5 @@ class ContactView(CreateView):
     def form_valid(self, form):
         form.save()
         send_email.delay(form.instance.email)
-        # send_email(form.instance.email)   # отправляет письмо
+        # send_mail(form.instance.email)   # отправляет письмо
         return super().form_valid(form)

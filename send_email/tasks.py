@@ -1,4 +1,5 @@
 from Celery_study.celery import app
+from .models import Contact
 from .service import send
 
 
@@ -6,7 +7,13 @@ from .service import send
 def send_email(user_email):
     send(user_email)
 
-# celery -A tasks worker --pool=solo --loglevel=info # запуск воркера
+
+@app.task
+def task_two():
+    for contact in Contact.objects.all():
+        send(contact.email)
+
+# celery -A Celery_study worker --pool=solo --loglevel=info # запуск воркера
 # data = background.delay(3)    # задача вызывается с помощью .delay
 # data.status   # статус выполнения задачи
 # data.id   # идентефикатор задачи
