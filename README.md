@@ -1,5 +1,6 @@
 # Celery_study
 
+Шаблон использования
 Celery+Redis+Django+Docker+
 
 # Как начать:
